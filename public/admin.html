@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <title>원정 결과 대시보드</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root { --bg:#f6f5fb; --card:#fff; --ink:#1b1733; --soft:#6b6688; --line:#e7e4f3; --accent:#7c5cff; }
+    @media (prefers-color-scheme: dark) { :root { --bg:#14112b; --card:#1f1b3d; --ink:#f4f2ff; --soft:#b9b3dc; --line:#353060; --accent:#9d85ff; } }
+    * { box-sizing: border-box; }
+    body { margin:0; background:var(--bg); color:var(--ink); font:15px/1.5 'Noto Sans KR', system-ui, sans-serif; }
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 20px 16px 60px; }
+    header { display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:space-between; margin-bottom:18px; }
+    h1 { font-size:22px; margin:0; }
+    button { font:inherit; border:0; border-radius:10px; padding:9px 14px; cursor:pointer; background:var(--accent); color:#fff; font-weight:500; }
+    button.sub { background:transparent; color:var(--soft); border:1px solid var(--line); }
+    .kpis { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:10px; margin-bottom:18px; }
+    .kpi, .card { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:14px 16px; }
+    .kpi b { display:block; font-size:26px; font-variant-numeric: tabular-nums; }
+    .kpi span { color:var(--soft); font-size:13px; }
+    .filters { display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin-bottom:14px; color:var(--soft); font-size:13px; }
+    select { font:inherit; padding:6px 8px; border-radius:8px; border:1px solid var(--line); background:var(--card); color:var(--ink); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:12px; }
+    .card h3 { font-size:14px; margin:0 0 10px; font-weight:700; }
+    .card h3 small { color:var(--soft); font-weight:400; }
+    .row { display:grid; grid-template-columns: 1fr 120px 64px; gap:8px; align-items:center; font-size:13px; margin:5px 0; }
+    .row .bar { height:10px; border-radius:6px; background:var(--line); overflow:hidden; }
+    .row .bar i { display:block; height:100%; background:var(--accent); border-radius:6px; }
+    .row .n { text-align:right; color:var(--soft); font-variant-numeric: tabular-nums; }
+    .agree { font-size:13px; color:var(--soft); margin-top:6px; }
+    .agree b { color:var(--ink); }
+    .texts { list-style:none; margin:0; padding:0; max-height:320px; overflow:auto; }
+    .texts li { border-top:1px solid var(--line); padding:8px 0; font-size:13.5px; }
+    .section { font-size:16px; margin:26px 0 10px; }
+    .center { text-align:center; padding:60px 10px; color:var(--soft); }
+    @media (max-width:420px) { .row { grid-template-columns: 1fr 80px 56px; } }
+  </style>
+</head>
+<body>
+  <div class="wrap" id="root"><div class="center">불러오는 중…</div></div>
+  <script type="module" src="admin.js"></script>
+</body>
+</html>
